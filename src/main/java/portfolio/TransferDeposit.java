@@ -1,5 +1,7 @@
 package portfolio;
- 
+
+import portfolio.visitors.NetBalanceReport;
+
 public class TransferDeposit implements TransferLeg {
  
     private Transfer transfer;
@@ -35,5 +37,12 @@ public class TransferDeposit implements TransferLeg {
     public double affectInvestmentEaringBalance(double balance) {
         return balance;
     }
+
+    @Override
+    public void accept(NetBalanceReport netBalanceReport) {
+        this.report = netBalanceReport;
+    }
+
+    NetBalanceReport report;
 
 }

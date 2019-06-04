@@ -10,6 +10,8 @@
  */
 package portfolio;
 
+import portfolio.visitors.NetBalanceReport;
+
 public class CertificateOfDeposit implements AccountTransaction {
 
 	private final double value;
@@ -54,5 +56,11 @@ public class CertificateOfDeposit implements AccountTransaction {
 	public double affectInvestmentEaringBalance(double balance) {
 		return balance + value*(tna/360)*numberOfDays;
 	}
+	@Override
+	public void accept(NetBalanceReport netBalanceReport) {
+		this.report = netBalanceReport;
+	}
+
+	NetBalanceReport report;
 
 }

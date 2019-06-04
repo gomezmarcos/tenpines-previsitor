@@ -1,5 +1,7 @@
 package portfolio;
- 
+
+import portfolio.visitors.NetBalanceReport;
+
 public class TransferWithdraw implements TransferLeg {
  
     private Transfer transfer;
@@ -37,4 +39,11 @@ public class TransferWithdraw implements TransferLeg {
     public double affectInvestmentEaringBalance(double balance) {
         return balance;
     }
+
+    @Override
+    public void accept(NetBalanceReport netBalanceReport) {
+        netBalanceReport.visitNetBalance(this);
+    }
+
+    NetBalanceReport report;
 }

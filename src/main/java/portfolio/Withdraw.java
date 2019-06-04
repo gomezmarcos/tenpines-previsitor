@@ -10,6 +10,8 @@
  */
 package portfolio;
 
+import portfolio.visitors.NetBalanceReport;
+
 public class Withdraw implements AccountTransaction {
 
 	private double value;
@@ -52,5 +54,13 @@ public class Withdraw implements AccountTransaction {
 	public double affectInvestmentEaringBalance(double balance) {
 		return balance;
 	}
+
+	@Override
+	public void accept(NetBalanceReport netBalanceReport) {
+		this.report = netBalanceReport;
+	}
+
+	NetBalanceReport report;
+
 
 }

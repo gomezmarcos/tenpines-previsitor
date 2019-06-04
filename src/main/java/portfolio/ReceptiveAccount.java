@@ -24,7 +24,6 @@ public class ReceptiveAccount implements SummarizingAccount {
     }
 
     public double balance() {
-        //PlainBalanceReport plainBalanceReport = new PlainBalanceReport(this);
         double balance = 0.0;
         for (AccountTransaction transaction : transactions) {
             balance = transaction.affectBalance(balance);
@@ -33,16 +32,7 @@ public class ReceptiveAccount implements SummarizingAccount {
         return balance;
     }
 
-    public double transferNetbalance() {
-		double balance = 0.0;
-		for (AccountTransaction transaction : transactions) {
-			balance = transaction.affectTransferNetBalance(balance);
-		}
-
-		return balance;
-	}
-
-	public void register(AccountTransaction transaction) {
+    public void register(AccountTransaction transaction) {
 		transactions.add(transaction);
 	}
 	

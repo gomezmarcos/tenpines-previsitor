@@ -10,6 +10,8 @@
  */
 package portfolio;
 
+import portfolio.visitors.NetBalanceReport;
+
 public interface AccountTransaction {
 
 	public double value();
@@ -22,4 +24,6 @@ public interface AccountTransaction {
 	double affectInvestmentNetBalance(double balance);
 
 	double affectInvestmentEaringBalance(double balance);
+
+	void accept(NetBalanceReport netBalanceReport);
 }

@@ -18,6 +18,7 @@ import java.util.List;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import portfolio.visitors.NetBalanceReport;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class PortfolioTest {
@@ -310,7 +311,7 @@ public class PortfolioTest {
 	}
 
 	private double accountTransferNet(ReceptiveAccount account) {
-		return account.transferNetbalance();
+		return new NetBalanceReport(account).invoke();
 	}
 
 	@Test
